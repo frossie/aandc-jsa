@@ -91,6 +91,8 @@
 
 \usepackage{upgreek}
 
+\usepackage{color}
+
 % Aim to be consistent, and correct, about how we refer to sections
 \newcommand*\secref[1]{Sect.~\ref{#1}}
 \newcommand*\appref[1]{\ref{#1}}
@@ -150,7 +152,9 @@
 \begin{abstract}
 %% Text of abstract
 
+{\color{red}
 Abstract here
+}
 
 \end{abstract}
 
@@ -191,7 +195,9 @@ JCMT, VO, Archives
 
 \section{Origins}
 
+{\color{red}
 In (19xx/2000? oh God I forget) - 
+}
 
 The JCMT Science Archive \citep{2008ASPC..394..450E,2008ASPC..394..135G} \ldots
 
@@ -206,7 +212,9 @@ as spectra or images. Calibration is difficult due to the dominant and
 highly variable effect of the water vapour in earth's atmosphere
 \citep[e.g.,][]{2002MNRAS.336....1A,2013MNRAS.430.2534D}.
 
+{\color{red}
 [visual example here - scary raw data]
+}
 
 JCMT invested significant effort in automated data reduction based on
 the ORAC-DR pipeline framework
@@ -219,7 +227,9 @@ SCUBA-2 \citep{2013MNRAS.430.2513H}, this data could be processed in
 maps that resulted in image data that could be readily understood by
 non-submm specialists.
 
+{\color{red}
 [visual example here - pretty scuba2 map]
+}
 
 The JCMT had in-house experience with setting up a data archive in the
 ``filing cabinet'' sense of allowing users to search and retrieve data.
@@ -274,11 +284,12 @@ these interfaces and services internally.
 
 \section{Motivation: Data Centre}
 
+{\color{red}
 (bribes accepted for not entitling this CADC: Knights in Shining
 Armour) (though *GOD* that would wind up Bob)
 
 (Double check with CADC folks. My recollection here was:
-
+}
 CADC already had an varied collection of data from a variety of
 telescopes and space missions. Keen to be able to extend its holdings
 with a small amount of effort, CADC developed CAOM \citep[the Common
@@ -298,8 +309,9 @@ their model; if JCMT data could be described in CAOM, CADC would be
 in the unprecendented position of being able to accept almost any data
 set from future observatories with minimal changes to their system.
 
+{\color{red}
 (visual: CAOM example?)
-
+}
 
 Another advantage in working with JCMT on its datasets, was the high
 level of completion and accuracy that JCMT provided in its
@@ -310,7 +322,9 @@ have to be delivered to the user. JCMT's dedication to high-fidelity
 metadata and quick response in the rare case of probles made this an
 attractive test data set.
 
+{\color{red}
 (Making this up - needs sanity check)
+}
 
 Meanwhile, CADC was working on the Canadian Advanced Network for
 Astronomical Research \citep[CANFAR;][]{2010SPIE.7740E..51G} project aiming to
@@ -345,15 +359,19 @@ releases'.
 
 \section{The optical-centric VO}
 
-
+{\color{red}
 [Rant about 2-D image-centric VO standards - Tim?]
+}
 
 \section{Metrics}
 
+{\color{red}
 Usage stats? Do we have any usage stats specifically for the VO services?
+}
 
 \section{Current Status}
 
+{\color{red}
 Extended collaboration to include UKIRT cassegrain data
 \citep{adassxxiii_P01}.
 
@@ -366,6 +384,7 @@ over TAP.
 
 Migrated to CAOM-2.0 \citep{2013ASPC..475..159R,2012ASPC..461..339D}
 with lots of new features for VO and Advanced Search.
+}
 
 \section{Lessons Learned}
 
