@@ -193,6 +193,8 @@ JCMT, VO, Archives
 
 In (19xx/2000? oh God I forget) - 
 
+The JCMT Science Archive \citep{2008ASPC..394..450E,2008ASPC..394..135G} \ldots
+
 
 \section{Motivation: Observatory}
 
@@ -201,18 +203,21 @@ radio than the optical/infrared regime familiar to most
 astronomers. Raw data is typically in time series format, and requires
 in-house algorithms for transformation to science-ready formats such
 as spectra or images. Calibration is difficult due to the dominant and
-highly variable effect of the water vapour in earth's atmosphere.
+highly variable effect of the water vapour in earth's atmosphere
+\citep[e.g.,][]{2002MNRAS.336....1A,2013MNRAS.430.2534D}.
 
 [visual example here - scary raw data]
 
 JCMT invested significant effort in automated data reduction based on
-the ORAC-DR pipeline framework. In many cases these automatically
-generated products were publication quality, and thanks to a
-constantly upated calibration model, better than what an inexperienced
-astronomer could be expected to achieve on their own. Moreover with
-the advent of large bolometer arrays such as SCUBA-2, this data could
-be processed in maps that resulted in image data that could be readily
-understood by non-submm specialists.
+the ORAC-DR pipeline framework
+\citep[][\ascl{1310.001}]{1999ASPC..172...11E,1999ASPC..172..171J,2005ASPC..347..585G,2008ASPC..394..565J}. In
+many cases these automatically generated products were publication
+quality, and thanks to a constantly upated calibration model, better
+than what an inexperienced astronomer could be expected to achieve on
+their own. Moreover with the advent of large bolometer arrays such as
+SCUBA-2 \citep{2013MNRAS.430.2513H}, this data could be processed in
+maps that resulted in image data that could be readily understood by
+non-submm specialists.
 
 [visual example here - pretty scuba2 map]
 
@@ -220,20 +225,22 @@ The JCMT had in-house experience with setting up a data archive in the
 ``filing cabinet'' sense of allowing users to search and retrieve data.
 
 Indeed, distribution of publication-quality data became an issue of
-the highest priority with the advent of the JCMT Survey Programme
-using the SCUBA-2 and HARP/ACSIS instruments. Aside from the normal
-desire to provide a uniformly reduced product to the survey teams, the
-processing demands for this data required a non-trivial IT
-infrastructure . Due to the iterative algorithms utilised by the
-SCUBA-2 mapmpaker (SMURF), the more data could be co-processed, the
-higher the fidelity of the solution, and circa 2008, machines with
-speficiations such as 64GB of RAM were not readily available to the
-typical JCMT observer. So there were intrinsic reasons to have a JCMT
-Science Archive allowing the survey consortia to download the
-processed products. But ultimately, usage of such an archive would be
-dominated by JCMT users retrieving their own data, or after the
-proprietary period ellapsed, other JCMT users working in the same
-scientific areas.
+the highest priority with the advent of the JCMT Legacy Survey
+Programme \citep{2010HiA....15..797C,2008ASPC..394..450E} using the
+SCUBA-2 and HARP/ACSIS \citep{2009MNRAS.399.1026B} instruments. Aside
+from the normal desire to provide a uniformly reduced product to the
+survey teams, the processing demands for this data required a
+non-trivial IT infrastructure . Due to the iterative algorithms
+utilised by the SCUBA-2 map-maker
+\citep[SMURF;][]{2013MNRAS.430.2545C}, the more data could be
+co-processed, the higher the fidelity of the solution, and circa 2008,
+machines with speficiations such as 64\,GB of RAM were not readily
+available to the typical JCMT observer. So there were intrinsic
+reasons to have a JCMT Science Archive allowing the survey consortia
+to download the processed products. But ultimately, usage of such an
+archive would be dominated by JCMT users retrieving their own data, or
+after the proprietary period ellapsed, other JCMT users working in the
+same scientific areas.
 
 JCMT formed a strong interest in going further, and exposing its
 high-value data product to data-mining astronomers who would not have
@@ -243,12 +250,13 @@ seemed like a natural choice for reaching the large parts of the
 atsronomical community that were oblivious to its existance. VO
 publication would also have the advantage of exposing the JCMT data
 sets to workhorse tools that VO-savvy astronomers already used, such
-as TOPCAT and Aladin.
+as TOPCAT \citep[][\ascl{1101.010}]{2005ASPC..347...29T} and Aladin
+\citep[][\ascl{1112.019}]{2005ASPC..347..193O}.
 
-However despite being well convinced of the desireability of
+However. despite being well convinced of the desireability of
 leveraging the VO tools and services for JCMT data, the observatory
 had the usual constraints of time and effort. The small Scientific
-Group was busy with supporting the entire non-hardware-controlling
+Computing Group was busy with supporting the entire non-hardware-controlling
 software suite at both JCMT and UKIRT (operated by the same
 organisation) as well as developing data reduction for new instruments
 and supporting the JCMT Legacy Surveys. The ability to develop a
@@ -256,7 +264,7 @@ VO-aware data center and support the demands of the hoped-for
 increased usage base was just not there.
 
 What JCMT had, however, was a pre-existing collaboration with CADC,
-which hosted the older JCMT data archive for the benefit of the
+which hosted the older JCMT data archive \citep{1997ASPC..125..397T} for the benefit of the
 Canadian astronomical community, Canada being one of the three
 international partners funding the JCMT (the other two being the
 United Kingdom and the Netherlands). CADC had early involvement in VO
@@ -266,17 +274,17 @@ these interfaces and services internally.
 
 \section{Motivation: Data Centre}
 
-(bribes accepted for not entitling this CADC: Knighst in Shining
+(bribes accepted for not entitling this CADC: Knights in Shining
 Armour) (though *GOD* that would wind up Bob)
 
 (Double check with CADC folks. My recollection here was:
 
 CADC already had an varied collection of data from a variety of
 telescopes and space missions. Keen to be able to extend its holdings
-with a small amount of effort, CADC developed CAOM (the Common Archive
-Object Model), an extensive and versatile data model that allowed any
-data to be ingested in the CADC archive provided it could be
-adequately mapped to it.
+with a small amount of effort, CADC developed CAOM \citep[the Common
+Archive Object Model;][]{2008ASPC..394..426D}, an extensive and
+versatile data model that allowed any data to be ingested in the CADC
+archive provided it could be adequately mapped to it.
 
 One of the main attractions of the JCMT data set was its significant
 departure from many of the common forms of other astonomical data,
@@ -304,7 +312,8 @@ attractive test data set.
 
 (Making this up - needs sanity check)
 
-Meanwhile, CADC was working on the CANFAR (def.) project aiming to
+Meanwhile, CADC was working on the Canadian Advanced Network for
+Astronomical Research \citep[CANFAR;][]{2010SPIE.7740E..51G} project aiming to
 support a cloud-like model for astronomical data reduction. The system
 is based on giving the user a VM with the appoprriate software,
 environment and data access. The user then defines a number of jobs
