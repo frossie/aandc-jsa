@@ -378,13 +378,45 @@ releases''.
 
 \section{The optical-centric VO}
 
-{\color{red}
-[Rant about 2-D image-centric VO standards - Tim?]
+In the early days of the Virtual Observatory, the focus was
+specifically on simple protocols \citep{siap,cone} to replace pre-existing
+web services for image retrieval and cone search; with retrieval of
+individual spectra coming somewhat later in VO developments
+\citep{ssap,splatvo}. These were the pressing issues of the optical
+community and this discussion dominated early protocol development.
 
-\citep{siap}
-\citep{ssap}
-\citep{2014AAS...22325505T}
-}
+Data cubes were seen as a task for the future as it was
+felt that they were products that were not yet in the mainstream and
+optical/IR IFU instruments \citep[such as
+UIST;][]{2004SPIE.5492.1160R} were seen as something interesting for
+the future. This was frustrating given that JCMT heterodyne
+observations regularly generated cubes and with the arrival of ACSIS
+in 2006, gigabyte data cubes were commonplace. There was no standard
+available for making all these cubes available to the VO and it is
+only recently \citep[e.g.,][]{2014AAS...22325505T} that a cube access
+protocol has been approached with any seriousness, driven mainly, in
+the USA, by ALMA and JWST developments \citep[e.g.,
+MIRI;][]{2010SPIE.7731E..10W}.
+
+Another peculiarity of sub-millimeter data is the lack of point
+sources. Most Galactic objects are extended and dust and gas from
+large clouds, outflows and filamentary structures are missed by
+standard source extraction algorithms such as SExtractor
+\citep[][\ascl{1010.064}]{1996A&AS..117..393B}. Instead, algorithms
+such as Fellwalker \citep[][\ascl{1311.007}]{2007ASPC..376..425B} and
+Clumpfind \citep[][\ascl{1107.014}]{1994ApJ...428..693W} which detect
+source emission in irregularly-shaped clumps. VO ConeSearch was not
+set up for this eventuality and the best we could hope for was to
+provide a catalogue that indicated the peak of the emission. To work
+around this problem clump catalgoues are generated with the clump
+outline approximated by a polygon specified in STC-S format
+\citep{2010ASPC..434..213B}. These outlines can then be retrieved
+using TAP for analysis or plotting. This is certainly less convenient
+for the end user than a clump equivalent of ConeSearch so we are
+extending the facilities in GAIA
+\citep[][\ascl{1403.024}]{2009ASPC..411..575D} to hide the TAP
+interface. Ideally a variant of ConeSearch will be developed that
+worked for extended irregular sources.
 
 \section{Metrics}
 
