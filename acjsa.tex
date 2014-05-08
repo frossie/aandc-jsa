@@ -225,7 +225,7 @@ JLS approved in July 2005 \citep{2005JCMTN23}. Leiden meeting was Jan 2005.
 
 \section{Motivation: Observatory}
 
-Submilimeter data has traditionally been rather esoteric, closer to
+Submillimeter data has traditionally been rather esoteric, closer to
 radio than the optical/infrared regime familiar to most
 astronomers. Raw data is typically in time series format, and requires
 in-house algorithms for transformation to science-ready formats such
@@ -241,7 +241,7 @@ JCMT invested significant effort in automated data reduction based on
 the ORAC-DR pipeline framework
 \citep[][\ascl{1310.001}]{1999ASPC..172...11E,1999ASPC..172..171J,2005ASPC..347..585G,2008ASPC..394..565J}. In
 many cases these automatically generated products were publication
-quality, and thanks to a constantly upated calibration model, better
+quality, and thanks to a constantly updated calibration model, better
 than what an inexperienced astronomer could be expected to achieve on
 their own. Moreover with the advent of large bolometer arrays such as
 SCUBA-2 \citep{2013MNRAS.430.2513H}, this data could be processed in
@@ -262,15 +262,15 @@ SCUBA-2 and HARP/ACSIS \citep{2009MNRAS.399.1026B} instruments. Aside
 from the normal desire to provide a uniformly reduced product to the
 survey teams, the processing demands for this data required a
 non-trivial IT infrastructure . Due to the iterative algorithms
-utilised by the SCUBA-2 map-maker
+utilized by the SCUBA-2 map-maker
 \citep[SMURF;][]{2013MNRAS.430.2545C}, the more data could be
 co-processed, the higher the fidelity of the solution, and circa 2008,
-machines with speficiations such as 64\,GB of RAM were not readily
+machines with specifications such as 64\,GB of RAM were not readily
 available to the typical JCMT observer. So there were intrinsic
 reasons to have a JCMT Science Archive allowing the survey consortia
 to download the processed products. But ultimately, usage of such an
 archive would be dominated by JCMT users retrieving their own data, or
-after the proprietary period ellapsed, other JCMT users working in the
+after the proprietary period elapsed, other JCMT users working in the
 same scientific areas.
 
 JCMT formed a strong interest in going further, and exposing its
@@ -278,13 +278,13 @@ high-value data product to data-mining astronomers who would not have
 a priori knowledge either of JCMT in particular or sub-mm astronomy in
 general. To that end, the VO data discovery and publication protocols
 seemed like a natural choice for reaching the large parts of the
-atsronomical community that were oblivious to its existance. VO
+astronomical community that were oblivious to its existence. VO
 publication would also have the advantage of exposing the JCMT data
 sets to workhorse tools that VO-savvy astronomers already used, such
 as TOPCAT \citep[][\ascl{1101.010}]{2005ASPC..347...29T} and Aladin
 \citep[][\ascl{1112.019}]{2005ASPC..347..193O}.
 
-However. despite being well convinced of the desireability of
+However. despite being well convinced of the desirability of
 leveraging the VO tools and services for JCMT data, the observatory
 had the usual constraints of time and effort. The small Scientific
 Computing Group was busy with supporting the entire non-hardware-controlling
@@ -300,7 +300,7 @@ Canadian astronomical community, Canada being one of the three
 international partners funding the JCMT (the other two being the
 United Kingdom and the Netherlands). CADC had early involvement in VO
 protocols, was a productive developer and enthusiastic supporter of VO
-standards, and was known to ``eat its own dogfood'' by using many of
+standards, and was known to ``eat its own dog food'' by using many of
 these interfaces and services internally.
 
 \section{Motivation: Data Centre}
@@ -319,15 +319,15 @@ versatile data model that allowed any data to be ingested in the CADC
 archive provided it could be adequately mapped to it.
 
 One of the main attractions of the JCMT data set was its significant
-departure from many of the common forms of other astonomical data,
+departure from many of the common forms of other astronomical data,
 that predominantly came from optical and IR instrumentation. JCMT data
 frequently comes in Galactic co-ordinates, up to 4 dimensions (2
 spatial, wavelength and polarization) and has a diverse number of
 products, from spectra, to image previews, to data cubes, maps and
 clump catalogues. CADC was planning the next version of their data
-model, CAOM, and realised that JCMT provided an excellent stretch to
+model, CAOM, and realized that JCMT provided an excellent stretch to
 their model; if JCMT data could be described in CAOM, CADC would be
-in the unprecendented position of being able to accept almost any data
+in the unprecedented position of being able to accept almost any data
 set from future observatories with minimal changes to their system.
 
 {\color{red}
@@ -340,7 +340,7 @@ metadata. Astronomical data archiving with poor or incomplete metadata
 becomes problematic verging onto untenable, especially when trying to
 meet the bar of a ``Science Archive'', when science-ready data products
 have to be delivered to the user. JCMT's dedication to high-fidelity
-metadata and quick response in the rare case of probles made this an
+metadata and quick response in the rare case of problems made this an
 attractive test data set.
 
 {\color{red}
@@ -350,14 +350,14 @@ attractive test data set.
 Meanwhile, CADC was working on the Canadian Advanced Network for
 Astronomical Research \citep[CANFAR;][]{2010SPIE.7740E..51G} project aiming to
 support a cloud-like model for astronomical data reduction. The system
-is based on giving the user a VM with the appoprriate software,
+is based on giving the user a VM with the appropriate software,
 environment and data access. The user then defines a number of jobs
 that are serviced on a Condor ({\color{red} is it?}) compute platform.
 
 This service is clearly of great utility to the Canadian astronomical
 community dealing with large data volumes, but it was also ideally
 suited for servicing JCMT's need for data processing. In fact, CADC's
-work wth CANFAR enabled JCMT to adopt a relatively unusual continuous
+work with CANFAR enabled JCMT to adopt a relatively unusual continuous
 data release model (see below).
 
 
@@ -370,8 +370,8 @@ Archive adopted a model of continuous release
 reduction and was ingested at CADC in the same 24-hour period it was
 observed. Thus, high-quality science products were published in the VO
 as soon as the PI had access to them. Moreover, with every major
-impovement in the data reduction software, data could be re-processed
-and again immeditaly released.
+improvement in the data reduction software, data could be re-processed
+and again immediately released.
 
 Continuous release made the VO publication mechanisms even more useful
 than they are in the normal data discovery process, as product
@@ -411,7 +411,7 @@ Clumpfind \citep[][\ascl{1107.014}]{1994ApJ...428..693W} which detect
 source emission in irregularly-shaped clumps. VO ConeSearch was not
 set up for this eventuality and the best we could hope for was to
 provide a catalogue that indicated the peak of the emission. To work
-around this problem clump catalgoues are generated with the clump
+around this problem clump catalogues are generated with the clump
 outline approximated by a polygon specified in STC-S format
 \citep{2010ASPC..434..213B}. These outlines can then be retrieved
 using TAP for analysis or plotting. This is certainly less convenient
@@ -454,8 +454,8 @@ into VO publication via an observatory-data center collaboration.
 Elements that we believe led to this success:
 
 \begin{itemize}
-\item VO publication was a common goal with significant organisational
-  buy-in for both parties from the start, and was a primary techncal
+\item VO publication was a common goal with significant organizational
+  buy-in for both parties from the start, and was a primary technical
   goal of the collaboration rather than an afterthought.
 
 \item Within that shared vision, there was a clear division of
@@ -469,7 +469,7 @@ Elements that we believe led to this success:
 \item Each organisation worked from a position of strength based on an
   advanced, robust and mature software architecture, allowing
   development to focus on new functionality and interfaces between the
-  two systems. This minimised the communication overheads commonly
+  two systems. This minimized the communication overheads commonly
   associated with distributed project.
 
 \item There was a high level of pre-existing trust between the two
