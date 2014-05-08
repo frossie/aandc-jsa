@@ -229,13 +229,20 @@ Submillimeter data has traditionally been rather esoteric, closer to
 radio than the optical/infrared regime familiar to most
 astronomers. Raw data is typically in time series format, and requires
 in-house algorithms for transformation to science-ready formats such
-as spectra or images. Calibration is difficult due to the dominant and
-highly variable effect of the water vapour in Earth's atmosphere
+as spectra or images (see e.g.\ Fig.~\ref{fig:g34}). Calibration is
+difficult due to the dominant and highly variable effect of the water
+vapour in Earth's atmosphere
 \citep[e.g.,][]{2002MNRAS.336....1A,2013MNRAS.430.2534D}.
 
-{\color{red}
-[visual example here - scary raw data]
-}
+\begin{figure}[t]
+\includegraphics[angle=-90,width=\columnwidth]{g34ts}
+\caption{Single bolometer time-series from a subset of a SCUBA-2
+  pointing observation of G34.3. The final image is show in
+  Fig.~\ref{fig:g34}. The negative spikes are the detections of the
+  bright central source.}
+\label{fig:g34ts}
+\end{figure}
+
 
 JCMT invested significant effort in automated data reduction based on
 the ORAC-DR pipeline framework
