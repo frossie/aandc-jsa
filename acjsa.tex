@@ -352,27 +352,9 @@ have to be delivered to the user. JCMT's dedication to high-fidelity
 metadata and quick response in the rare case of problems made this an
 attractive test data set.
 
-{\color{red}
-(Making this up - needs sanity check)
-}
+\section{A Continuous Release Model}
 
-Meanwhile, CADC was working on the Canadian Advanced Network for
-Astronomical Research \citep[CANFAR;][]{2010SPIE.7740E..51G} project aiming to
-support a cloud-like model for astronomical data reduction. The system
-is based on giving the user a VM with the appropriate software,
-environment and data access. The user then defines a number of jobs
-that are serviced on a Condor ({\color{red} is it?}) compute platform.
-
-This service is clearly of great utility to the Canadian astronomical
-community dealing with large data volumes, but it was also ideally
-suited for servicing JCMT's need for data processing. In fact, CADC's
-work with CANFAR enabled JCMT to adopt a relatively unusual continuous
-data release model (see below).
-
-
-\section{CANFAR and A Continuous Release Model}
-
-Using CADC's CANFAR pipeline infrastructure and the capabilities of
+Using CADC's data processing infrastructure and the capabilities of
 JCMT/UKIRT's ORAC-DR automated data reduction, the JCMT Science
 Archive adopted a model of continuous release
 \citep{2011ASPC..442..203E}. As data was taken it was pushed for
@@ -385,8 +367,27 @@ and again immediately released.
 Continuous release made the VO publication mechanisms even more useful
 than they are in the normal data discovery process, as product
 availability is, from the point of view of the astronomer,
-unpredictable rather coming in fixed, scheduled, announced ``data
+unpredictable rather than coming in fixed, scheduled, announced ``data
 releases''.
+
+\section{Post-Observatory}
+
+Meanwhile, CADC was working on the Canadian Advanced Network for
+Astronomical Research \citep[CANFAR;][]{2010SPIE.7740E..51G} project aiming to
+support a cloud-like model for astronomical data reduction. The system
+is based on giving the user a Virtual Machine that is then customized to
+provide the appropriate software, environment and data access. The
+user then defines a number of jobs that are serviced on a Condor
+compute platform composed of customized VM copies.
+
+This service is clearly of great utility to the Canadian astronomical
+community dealing with large data volumes, in this case the artifacts of
+the Gould Belt Legacy Survey.  In its use of CANFAR, the GBS data
+processing lifecycle is supported at every step by VO-compliant services.
+Raw data is retrieved from VO-compliant discovery and delivery services,
+that data is processed on the customized VMs provisioned on CANFAR, and
+the resulting products are shared among survey members in VO-compliant
+storage services.
 
 \section{The optical-centric VO}
 
