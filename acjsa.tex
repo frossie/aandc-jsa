@@ -315,18 +315,17 @@ interfaces and services internally.
 
 \section{Motivation: Data Centre}
 
-CADC already had an varied collection of data from a variety of
+CADC already had an varied collection of data from several
 telescopes and space missions
 \citep{1994ASPC...61..123C,2008SPIE.7016E..16G}. Keen to be able to
-extend its holdings with a small amount of effort, CADC developed 
+extend its holdings to new observatories and data sets while 
+requiring only a small and well-defined effort, CADC developed 
 the Common Archive Observation Model
-\citep[CAOM:][]{2007ASPC..376..347D,2008ASPC..394..426D}, an extensive and
+\citep[CAOM:][]{2007ASPC..376..347D,2008ASPC..394..426D}.  CAOM defines an extensive and
 versatile data model that classifies every data file using a common set of physical, 
-observational, organizational, and processing metadata across every archive.
-This allows a generic IVOA-compliant search tool, such as AdvancedSearch, to find all data
-in any CADC archive relevant to a chosen target in the sky, a long-standing goal of the
-Virtual Observatory effort.  During the period reported here CADC was developing
-the next version of CAOM, which was released for general use on 2014 May 1.  
+observational, organizational, and processing metadata.
+This allows a generic VO search tool, such as AdvancedSearch, to search the
+entire set of CADC archives for data relevant to a chosen target in the sky.  
 % that allowed any data to be ingested in the CADC
 % archive provided it could be adequately mapped to CAOM.
 
@@ -399,7 +398,8 @@ compute platform composed of customized VM copies.
 
 This service is clearly of great utility to the Canadian astronomical
 community dealing with large data volumes, in this case the artifacts of
-the Gould Belt Legacy Survey \citep[GBS;][]{2007PASP..119..855W}.  In its use of CANFAR, the GBS data
+the Gould Belt Legacy Survey \citep[GBS;][]{2007PASP..119..855W}.  
+In its use of CANFAR, the GBS data
 processing lifecycle is supported at every step by VO-compliant services.
 Raw data is retrieved from VO-compliant discovery and delivery services,
 that data is processed on the customized VMs provisioned on CANFAR, and
@@ -489,14 +489,20 @@ reduced data products and make them available to the VO for the first
 time.
 
 {\color{red}
-Migrated to CAOM-2.0 \citep{2013ASPC..475..159R,2012ASPC..461..339D}
-with lots of new features for VO and Advanced Search.
+The JSA pioneered the use of CAOM at the CADC being implemented in both 
+CAOM-0.9 and CAOM-1.  The latest version, CAOM-2,  was released for general 
+use on 2014 May 1 and includes clarifications and simplifications over the earlier models.
+The metadata that is available for searching is richer, more complete, and easier
+to understand than anything that was previously available.
+  
+%Migrated to CAOM-2.0 \citep{2013ASPC..475..159R,2012ASPC..461..339D}
+%with lots of new features for VO and Advanced Search.
 }
 
 \section{Lessons Learned}
 
 The JCMT Science Archive collaboration was a high successful foray
-into VO publication via an observatory-data center collaboration.
+into VO publication via an observatory-data centre collaboration.
 
 Elements that we believe led to this success:
 
@@ -507,18 +513,30 @@ Elements that we believe led to this success:
 
 \item Within that shared vision, there was a clear division of
   expertise and responsibilities for each side, allowing each
-  organisation to focus on its proximate technical goals. Both
-  organisations had ``skin in the game'' that were served by the
+  organization to focus on its proximate technical goals. Both
+  organizations had ``skin in the game'' that were served by the
   technical work undertaken, which allowed this work to be carried out
   without any kind of external agency funding (each institution
   supported its own share of the work out of its normal budgetary
   process).
 
-\item Each organisation worked from a position of strength based on an
+\item Each organization worked from a position of strength based on an
   advanced, robust and mature software architecture, allowing
   development to focus on new functionality and interfaces between the
   two systems. This minimized the communication overheads commonly
   associated with distributed project.
+  
+{\color{red}
+\item The role of "data engineer" responsible for developing software to
+ingest new data into a CAOM archive no longer requires special privileges
+at the CADC.  It does require an expert
+knowledgable about both the CAOM model and the products generated
+by the data reduction system, but the tools developed for CAOM
+allow this role to be assigned to the best available expert regardless of their
+location or institutional association.  Thus, for UKIRT, the JAC has been able to 
+assign one of their own staff to this role, and for the JSA a retired CADC staff
+member currently fills the role.  
+}
 
 \item There was a high level of pre-existing trust between the two
   groups from their previous relationship leading to minimal need for
@@ -531,7 +549,7 @@ Elements that we believe led to this success:
 
 In the general case, for observatories that do not understand the
 mechanisms or benefits of VO publication, collaboration with a
-motivated VO-involved data center that has the appropriate
+motivated VO-involved data centre that has the appropriate
 infrastructure and keeps up to date with the IVOA standards process is
 a far more effective choice than trying to develop those capabilities
 in-house, especially since there seems to be confusion in the
@@ -541,6 +559,13 @@ are the merits of doing it.
 However, in order to be able to properly leverage the capability of a
 modern multi-mission data center, a fanatical devotion to correct and
 complete metadata should be considered a pre-requisite.
+
+{\color{red}
+Good communications within the team of collaborators is essential.  Regular
+weekly or bi-weekly teleconferences and occasional face-to-face meetings 
+have been important to keeping everyone aware of issues and working to
+common purposes.
+}
 
 \section*{Acknowledgments}
 
