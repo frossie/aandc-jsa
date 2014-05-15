@@ -318,14 +318,14 @@ interfaces and services internally.
 CADC already had an varied collection of data from several
 telescopes and space missions
 \citep{1994ASPC...61..123C,2008SPIE.7016E..16G}. Keen to be able to
-extend its holdings to new observatories and data sets while 
-requiring only a small and well-defined effort, CADC developed 
+extend its holdings to new observatories and data sets while
+requiring only a small and well-defined effort, CADC developed
 the Common Archive Observation Model
 \citep[CAOM:][]{2007ASPC..376..347D,2008ASPC..394..426D}.  CAOM defines an extensive and
-versatile data model that classifies every data file using a common set of physical, 
+versatile data model that classifies every data file using a common set of physical,
 observational, organizational, and processing metadata.
 This allows a generic VO search tool, such as AdvancedSearch, to search the
-entire set of CADC archives for data relevant to a chosen target in the sky.  
+entire set of CADC archives for data relevant to a chosen target in the sky.
 % that allowed any data to be ingested in the CADC
 % archive provided it could be adequately mapped to CAOM.
 
@@ -334,7 +334,7 @@ departure from many of the common forms of other astronomical data,
 that predominantly came from optical and IR instrumentation. JCMT data
 frequently comes in Galactic co-ordinates, up to 4 dimensions (2
 spatial, wavelength and polarization) and has a diverse set of
-products, including spectra, data cubes, maps, previews showing both spectral 
+products, including spectra, data cubes, maps, previews showing both spectral
 and spatial images,  and catalogs for point sources, emission peaks and
 clumps (extended regions of non-uniform emission).  The JCMT
 provided an excellent stretch to the model; if JCMT data could be
@@ -351,17 +351,17 @@ have to be delivered to the user. JCMT's dedication to high-fidelity
 metadata and quick response in the rare case of problems made this an
 attractive test data set.
 
-The success of 
+The success of
 this approach can be seen from the screen shot in Fig.~\ref{fig:asresults},
-which shows the reduced (Calibration Level 2) data from May 2014, sorted by 
-observation date, filtered to remove reduced-450um data (since the atmosphere 
-at 450um is often very opaque) and to include observations with RA > 150.0 deg. 
-A pop-up preview of G34.3 is shown; clicking would bring up a larger version 
-of the preview in a new tab.  The "productID" column shows the kind of data that 
-can be download for each selection, giving the product type (reduced data files in 
-this example) and basic wavelength information (filter for continuum observations, 
-rest frequency and spectrometer configuration for heterodyne observations). 
- 
+which shows the reduced (Calibration Level 2) data from May 2014, sorted by
+observation date, filtered to remove reduced-450um data (since the atmosphere
+at 450um is often very opaque) and to include observations with RA > 150.0 deg.
+A pop-up preview of G34.3 is shown; clicking would bring up a larger version
+of the preview in a new tab.  The "productID" column shows the kind of data that
+can be download for each selection, giving the product type (reduced data files in
+this example) and basic wavelength information (filter for continuum observations,
+rest frequency and spectrometer configuration for heterodyne observations).
+
 \begin{figure}[t]
 \includegraphics[width=\columnwidth]{acjsa_fig3}
 \caption{AdvancedSearch Results.}
@@ -398,7 +398,7 @@ compute platform composed of customized VM copies.
 
 This service is clearly of great utility to the Canadian astronomical
 community dealing with large data volumes, in this case the artifacts of
-the Gould Belt Legacy Survey \citep[GBS;][]{2007PASP..119..855W}.  
+the Gould Belt Legacy Survey \citep[GBS;][]{2007PASP..119..855W}.
 In its use of CANFAR, the GBS data
 processing lifecycle is supported at every step by VO-compliant services.
 Raw data is retrieved from VO-compliant discovery and delivery services,
@@ -489,14 +489,14 @@ reduced data products and make them available to the VO for the first
 time.
 
 {\color{red}
-The JSA pioneered the use of CAOM at the CADC being implemented in both 
-CAOM-0.9 and CAOM-1.  The latest version, CAOM-2 
-\citep{2013ASPC..475..159R,2012ASPC..461..339D},  was released for general 
+The JSA pioneered the use of CAOM at the CADC being implemented in both
+CAOM-0.9 and CAOM-1.  The latest version, CAOM-2
+\citep{2013ASPC..475..159R,2012ASPC..461..339D},  was released for general
 use on 2014 May 1 and includes clarifications and improvements due to
 lessons learned from the earlier models.
 The metadata that is available for searching is richer, more complete, and easier
 to understand than anything that has been available previously.
-  
+
 %Migrated to CAOM-2.0 \citep{2013ASPC..475..159R,2012ASPC..461..339D}
 %with lots of new features for VO and Advanced Search.
 }
@@ -527,7 +527,7 @@ Elements that we believe led to this success:
   development to focus on new functionality and interfaces between the
   two systems. This minimized the communication overheads commonly
   associated with distributed project.
-  
+
 {\color{red}
 \item The role of "data engineer" responsible for developing software to
 ingest new data into a CAOM archive no longer requires special privileges
@@ -535,9 +535,9 @@ at the CADC.  It does require an expert
 knowledgable about both the CAOM model and the products generated
 by the data reduction system, but the tools developed for CAOM
 allow this role to be assigned to the best available expert regardless of their
-location or institutional association.  Thus, for UKIRT, the JAC has been able to 
+location or institutional association.  Thus, for UKIRT, the JAC has been able to
 assign one of their own staff to this role, and for the JSA a retired CADC staff
-member currently fills the role.  
+member currently fills the role.
 }
 
 \item There was a high level of pre-existing trust between the two
@@ -564,7 +564,7 @@ complete metadata should be considered a pre-requisite.
 
 {\color{red}
 Good communications within the team of collaborators is essential.  Regular
-weekly or bi-weekly teleconferences and occasional face-to-face meetings 
+weekly or bi-weekly teleconferences and occasional face-to-face meetings
 have been important to keeping everyone aware of issues and working to
 common purposes.
 }
