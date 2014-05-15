@@ -318,28 +318,30 @@ interfaces and services internally.
 CADC already had an varied collection of data from a variety of
 telescopes and space missions
 \citep{1994ASPC...61..123C,2008SPIE.7016E..16G}. Keen to be able to
-extend its holdings with a small amount of effort, CADC developed CAOM
-\citep[the Common Archive Observation
-  Model;][]{2007ASPC..376..347D,2008ASPC..394..426D}, an extensive and
-versatile data model that allowed any data to be ingested in the CADC
-archive provided it could be adequately mapped to CAOM.
+extend its holdings with a small amount of effort, CADC developed 
+the Common Archive Observation Model
+\citep[CAOM:][]{2007ASPC..376..347D,2008ASPC..394..426D}, an extensive and
+versatile data model that classifies every data file using a common set of physical, 
+observational, organizational, and processing metadata across every archive.
+This allows a generic IVOA-compliant search tool, such as AdvancedSearch, to find all data
+in any CADC archive relevant to a chosen target in the sky, a long-standing goal of the
+Virtual Observatory effort.  During the period reported here CADC was developing
+the next version of CAOM, which was released for general use on 2014 May 1.  
+% that allowed any data to be ingested in the CADC
+% archive provided it could be adequately mapped to CAOM.
 
 One of the main attractions of the JCMT data set was its significant
 departure from many of the common forms of other astronomical data,
 that predominantly came from optical and IR instrumentation. JCMT data
 frequently comes in Galactic co-ordinates, up to 4 dimensions (2
-spatial, wavelength and polarization) and has a diverse number of
-products, from spectra, to image previews, to data cubes, maps and
-clump (extended non-uniform emission) catalogues. CADC was planning
-the next version of their data model, CAOM, and realized that JCMT
-provided an excellent stretch to their model; if JCMT data could be
+spatial, wavelength and polarization) and has a diverse set of
+products, including spectra, data cubes, maps, previews showing both spectral 
+and spatial images,  and catalogs for point sources, emission peaks and
+clumps (extended regions of non-uniform emission).  The JCMT
+provided an excellent stretch to the model; if JCMT data could be
 described in CAOM, CADC would be in the unprecedented position of
 being able to accept almost any data set from future observatories
 with minimal changes to their system.
-
-{\color{red}
-(visual: CAOM example?)
-}
 
 Another advantage in working with JCMT on its datasets, was the high
 level of completion and accuracy that JCMT provided in its
@@ -349,6 +351,23 @@ meet the bar of a ``Science Archive'', when science-ready data products
 have to be delivered to the user. JCMT's dedication to high-fidelity
 metadata and quick response in the rare case of problems made this an
 attractive test data set.
+
+The success of 
+this approach can be seen from the screen shot in Fig.~\ref{fig:asresults},
+which shows the reduced (Calibration Level 2) data from May 2014, sorted by 
+observation date, filtered to remove reduced-450um data (since the atmosphere 
+at 450um is often very opaque) and to include observations with RA > 150.0 deg. 
+A pop-up preview of G34.3 is shown; clicking would bring up a larger version 
+of the preview in a new tab.  The "productID" column shows the kind of data that 
+can be download for each selection, giving the product type (reduced data files in 
+this example) and basic wavelength information (filter for continuum observations, 
+rest frequency and spectrometer configuration for heterodyne observations). 
+ 
+\begin{figure}[t]
+\includegraphics[width=\columnwidth]{acjsa_fig3}
+\caption{AdvancedSearch Results.}
+\label{fig:asresults}
+\end{figure}
 
 \section{A Continuous Release Model}
 
