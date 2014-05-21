@@ -213,7 +213,7 @@ survey instrument. Expoloratory discussions on the JSA between JCMT and CADC
 began in 2003 and culminated in a decision to approve the
 collaboration in May 2005 \citep{2005JCMTN23}. Development effort was
 obtained in-house and also from the addition of two programmers recruited from
-the UK Starlink project, which had recently been closed.
+the UK Starlink project \citep{1982QJRAS..23..485D}, which had recently been closed.
 
 The commitment to a JCMT Science Archive was followed shortly
 afterwards by the approval of the JCMT Legacy Survey programme in July
@@ -226,7 +226,7 @@ products. \citep{2006JCMTN24R}.
 
 Submillimeter data has traditionally been rather esoteric, closer to
 radio than the optical/infrared regime familiar to most
-astronomers. Raw data is typically in time series format, and requires
+astronomers. Raw data is typically in time series format (Fig.~\ref{fig:g34ts}), and requires
 in-house algorithms for transformation to science-ready formats such
 as spectra or images (see e.g.\ Fig.~\ref{fig:g34}). Calibration is
 difficult due to the dominant and highly variable effect of the water
@@ -256,7 +256,7 @@ non-submm specialists, an example of which can be seen in Fig.~\ref{fig:g34}.
 
 \begin{figure}[t]
 \includegraphics[width=\columnwidth]{g34}
-\caption{SCUBA-2 pointing observation of G34.3.}
+\caption{SCUBA-2 observation of G34.3.}
 \label{fig:g34}
 \end{figure}
 
@@ -276,7 +276,7 @@ co-processed, the higher the fidelity of the solution, and circa 2008,
 machines with specifications such as 64\,GB of RAM were not readily
 available to the typical JCMT observer. So there were intrinsic
 reasons to have a JCMT Science Archive allowing the survey consortia
-to download the processed products. But ultimately, usage of such an
+to download the processed products. Ultimately, usage of such an
 archive would be dominated by JCMT users retrieving their own data, or
 after the proprietary period elapsed, other JCMT users working in the
 same scientific areas.
@@ -292,7 +292,7 @@ sets to workhorse tools that VO-savvy astronomers already used, such
 as TOPCAT \citep[][\ascl{1101.010}]{2005ASPC..347...29T} and Aladin
 \citep[][\ascl{1112.019}]{2005ASPC..347..193O}.
 
-However. despite being well convinced of the desirability of
+However, despite being convinced of the desirability of
 leveraging the VO tools and services for JCMT data, the observatory
 had the usual constraints of time and effort. The small Scientific
 Computing Group was busy with supporting the entire non-hardware-controlling
@@ -310,7 +310,9 @@ one of the three international partners funding the JCMT (the other
 two being the United Kingdom and the Netherlands). CADC had early
 involvement in VO protocols \citep{2002ASPC..281...36S}, was a
 productive developer and enthusiastic supporter of VO standards, and
-was known to ``eat its own dog food'' by using many of these
+was known to ``eat its own dog
+food''\footnote{\url{http://en.wikipedia.org/wiki/Eating_your_own_dog_food}}
+by using many of these
 interfaces and services internally.
 
 \section{Motivation: Data Centre}
@@ -323,7 +325,7 @@ interfaces and services internally.
 \end{center}
 \end{figure*}
 
-CADC already had an varied collection of data from several
+CADC already had a varied collection of data from several
 telescopes and space missions
 \citep{1994ASPC...61..123C,2008SPIE.7016E..16G}. Keen to be able to
 extend its holdings to new observatories and data sets while
@@ -363,7 +365,7 @@ The success of
 this approach can be seen from the screen shot in Fig.~\ref{fig:asresults},
 which shows the reduced (Calibration Level 2) data from May 2014, sorted by
 observation date, filtered to remove reduced-450\,$\upmu$m data (since the atmosphere
-at 450\,$\upmu$m is often very opaque) and to include observations with RA $>$ 150.0 deg.
+at 450\,$\upmu$m is often very opaque) and to include observations with RA $>$ 125.0 deg.
 A pop-up preview of G34.3 is shown; clicking would bring up a larger version
 of the preview in a new tab.  The \texttt{productID} column shows the kind of data that
 can be downloaded for each selection, giving the product type (reduced data files in
@@ -443,8 +445,9 @@ large clouds, outflows and filamentary structures are missed by
 standard source extraction algorithms such as SExtractor
 \citep[][\ascl{1010.064}]{1996A&AS..117..393B}. Instead, algorithms
 such as Fellwalker \citep[][\ascl{1311.007}]{2007ASPC..376..425B} and
-Clumpfind \citep[][\ascl{1107.014}]{1994ApJ...428..693W} which detect
-source emission in irregularly-shaped clumps. VO ConeSearch was not
+Clumpfind \citep[][\ascl{1107.014}]{1994ApJ...428..693W}, which detect
+source emission in irregularly-shaped clumps, were used when
+doing source finding. VO ConeSearch was not
 set up for this eventuality and the best we could hope for was to
 provide a catalogue that indicated the peak of the emission. To work
 around this problem clump catalogues are generated with the clump
@@ -477,8 +480,9 @@ public HARP/ACSIS and SCUBA-2 data using an ``all-sky'' HEALpix
 projection \citep{2014SPIE9152-93,2014JCMTN35..20B}. This processing
 will also result in catalogue products that are specifically designed
 to answer the question of whether the JCMT saw any emission in a
-particular part of the sky. This is achieved by doing a two-pass clump
-find where first the emission outline is determined, and represented
+particular part of the sky. This is achieved by doing a two-pass
+approach to clump
+finding where first the emission outline is determined, and represented
 by an STC-S polygon, and then the individual peaks are located
 \citep{2014JCMTN35..21G}.
 
