@@ -157,7 +157,7 @@
   We present, as a case study, a description of the
   partnership between an observatory (JCMT) and a data centre (CADC)
   that led to the development of the JCMT Science Archive (JSA). The
-  JSA is a successful example of a service designed with VO-centric
+  JSA is a successful example of a service designed to use {\color{red}Virtual Observatory (VO)}
   technologies from the start. We describe the motivation, process and
   lessons learned from this approach.
 
@@ -346,12 +346,33 @@ entire set of CADC archives for data relevant to a chosen target in the sky.
 
 One of the main attractions of the JCMT data set was its significant
 departure from many of the common forms of other astronomical data,
-that predominantly came from optical and IR instrumentation. JCMT data
-frequently comes in Galactic co-ordinates, up to 4 dimensions (2
-spatial, wavelength and polarization) and has a diverse set of
-products, including spectra, data cubes, maps, previews showing both spectral
+that predominantly came from optical and IR instrumentation. 
+{\color{red}Examples include:
+\begin{itemize}
+\item The "photon energy" axis for optical observations is normally described in wavelength 
+units like \AA ngstr\"{o}ms or microns, whereas most radio observations are defined in 
+frequency units like MHz and GHz.  To ingest and search for JCMT observations 
+it was necessary to enhance the tools to handle both wavelength and frequency units, with the 
+consequence that CADC interfaces now handle transparently most standard conversions 
+amongst frequency, energy and wavelength units. 
+\item At the start of the collaboration, most optical
+data consisted of two dimensional RA/Dec images and sets of spectra.  Even at that time, JCMT data
+came in RA/Dec, Galactic and offset co-ordinates, with up to 4 dimensions (2
+spatial, wavelength and polarization).  The JCMT standard pipeline generates a 
+diverse set of products, including spectra, data cubes, maps, previews showing both spectral
 and spatial images,  and catalogs for point sources, emission peaks and
-clumps (extended regions of non-uniform emission).  The JCMT
+clumps (extended regions of non-uniform emission).  
+\item Since most detector technologies only allow a photon to be 
+detected once, it can be safely assumed for optical instruments with multiple detectors 
+that the data products from different detectors will not overlap in WCS space.  The ability 
+at radio wavelengths to amplify the detected signal and feed it into multiple 
+spectrometers allows the output of the JCMT multi-subsystem spectrometer ACSIS 
+to include spectra and data cubes that overlap in a variety of ways, sometimes with 
+different frequency resolution, sometimes overlapping just at the ends of the spectra 
+to allow a much wider frequency coverage for a given frequency resolution than could be managed 
+by any single subsystem.  
+\end{itemize}
+The JCMT therefore}
 provided an excellent stretch to the model; if JCMT data could be
 described in CAOM, CADC would be in the unprecedented position of
 being able to accept almost any data set from future observatories
@@ -359,10 +380,21 @@ with minimal changes to their system.
 
 Another advantage in working with JCMT on its datasets, was the high
 level of completion and accuracy that JCMT provided in its
-metadata. Astronomical data archiving with poor or incomplete metadata
-becomes problematic verging onto untenable, especially when trying to
-meet the bar of a ``Science Archive'', when science-ready data products
-have to be delivered to the user. JCMT's dedication to high-fidelity
+metadata. {\color{red}Even modern instruments on some older telescopes follow 
+metadata conventions established by the observatory long before the FITS
+World Coordinate System (WCS) conventions were agreed upon.  At the 
+start of the collaboration, the CADC would assign an ``archive scientist'' to
+each archive, whose job description included learning all the idiosyncrasies 
+of the observatory.   A major part of that effort
+involved working around poor or incomplete metadata that made 
+astronomical data archiving problematic, especially if the observatory tended to
+change their data products and headers without warning.  Maintaining a
+proper ``Science Archive'' requires that both power users and
+astronomers unfamiliar with an observatory's
+internal conventions must be able to find and download science-ready data products
+without mastering an arcane interface or guessing how to interpret the
+metadata that it presents.  }
+JCMT's dedication to high-fidelity
 metadata and quick response in the rare case of problems made this an
 attractive test data set.
 
@@ -377,6 +409,36 @@ can be downloaded for each selection, giving the product type (reduced data file
 this example) and basic wavelength information (filter for continuum observations,
 rest frequency and spectrometer configuration for heterodyne observations).
 
+{\color{red}
+\section{VO Standards Used in the JSA}
+Do we use the IVOA Credential Delegation mechanism?  Are there other protocols that should be listed?
+\begin{description}
+\item[CAOM]: Common Object Observation Model -- Conceptually a superset of ObsCore, CAOM is a cross-archive data model implemented at the CADC to provide search and retrieval \item[DALI]: Data Access Layer Interface -- Implemented by the ``Data Web Service'' to provide access to the ``Archive Directory'' file storage resource. \url{???} 
+\item[ObsCore]: Observation Data Model Core Components -- IVOA standard observation data model. \url{http://www.ivoa.net/documents/ObsCore/}
+capabilities for all CADC archives.  The SIA and TAP services provide VO access to CAOM databases \url{http://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/caom2/}
+\item[SIA]: Simple Image Access Protocol -- The SIA server at the CADC can be used to discover, access, and retrieve multi-dimensional image datasets. \url{http://www.ivoa.net/documents/SIA/}
+\item[TAP]: Table Access Protocol -- Used to query CAOM databases, translating obscure entities into CAOM entities transparently. \url{http://www.ivoa.net/documents/TAP/} 
+\item[VOTable]: Virtual Observatory Table Format -- An XML standard for the interchange of data represented as a set of tables, TAP and AdvancedSearch can return query results to the user in VOTable format \url{http://www.ivoa.net/documents/VOTable/}
+\end{description}
+}
+
+\section{Evolution of the Data Flow}
+
+\begin{figure}[t]
+\includegraphics[width=\columnwidth]{jsa_dataflow_2015}
+\caption{Data flow through the JSA as it is intended to be in early 2015.  The JCMT and CADC processes are arranged in four columns, with the JCMT-specific processes on the left, "portable processes" (data processing, file transfer and metadata ingestion) in the dotted box in the centre-left, CADC processes in the centre-right, and client processes running on archive users machines on the right.  The ``vertical drums'' in the figure represent relational databases.  The ``horizontal drums'' represent file storage, but do not specify the technology used to implement the storage (disk drives at the JCMT, databases at the CADC and for the CANFAR VOspace).  Where the software is developed, maintained and run by the JCMT/JAC or CADC, this is indicated by dashed container boxes.     Manual operations by JAC and CADC staff have been elided; user interactions are shown as arrows on the right side of the figure.}
+\label{fig:jsadataflow}
+\end{figure}
+
+{\color{red}
+The system that moves data from the JCMT to the CADC and on to our users has been under continuous development since the start of the collaboration.  Figure~\ref{jsadataflow} shows the current development goal, which should have been attained by the time this paper is published.  Data files sent to be stored in the ``Archive Directory'' (AD) system at the CADC enter through the "data web service" interface.  File metadata in the databases comprising the ``JSA CAOM Metadata'' system are managed using the ``CAOM Repository'' interface and can be read through the ``Table Access Protocol'' (TAP) service.  Similarly, users access data and metadata through the ``data web service'' and TAP interfaces.  The use of a small number of well tested interfaces improves the reliability of the service and makes it easier to maintain on a limited budget.   Using the same interfaces that our users rely on ensures that problems are discovered and addressed quickly.
+
+The system was initially quite different.  Before the advent of CAOM, every archive maintained a custom database.  Each file was stored in AD and ingested into the database as it arrived through e-transfer.  The JCMT supplied by replication a set of observatory databases that contained file metadata for raw data, and published an ICD describing the file headers in reduced data products. The JCMT committed itself to follow strict FITS standards for file headers and WCS, and for raw data reproduced a set of columns in the ``File Metadata'' database that was nearly identical  to the set of headers in the reduced data for single observations.   The CADC archive scientist was responsible for the design of software that read the metadata from the replicated database or from the reduced data headers.  Writing and maintaining the software to ingest the metadata into the ``JSA CAOM Metadata'' database required a team of software developers at the CADC.  The successful operation of this system required close collaboration of the JCMT with the JSA team at the CADC, with weekly progress videocons and regular (often annual) face-to-face meetings to discuss larger issues.  Although the system worked, it was cumbersome and expensive.  A leaner and more versatile system was clearly desirable.
+
+The container labelled ``Portable Processes'' in Figure~\ref{jsadataflow} illustrates how the leaner system was implemented.  The custom software for each archive was refactored into a set of simpler processes.  Data processing ran at the CADC for easy access to the stored data, but was developed and maintained by the JAC.  This encouraged a clean separation between the ``Data Processing Queue'' and  ``data Processing'' itself.    The JSA was an early adopter of CAOM, which allowed raw and processed data ingestion to be factored out as separate processes.  Since raw data ingestion applies to whole observations, the ``Raw Data Discovery Agent'' verifies that all of the raw data for an observation is stored in AD before starting the ``Raw Data Ingestion'' process.  Originally, ``Processed Data Ingestion'' had its own discovery agent, but it is now controlled by the ``Data Processing Queue''.  
+
+The refactored system is quite modular and deployment is extremely flexible. These processes were deployed at the CADC for most of the last decade, but over the last year have migrated to the JAC.  It is anticipated that data processing might move onto a CANFAR Virtual Machine in the near future.  Ingestion can now run on any node that can access the ``CAOM Repository'', read existing metadata through the TAP service and optionally access the ``File Metadata'' service at the JCMT.   This extraordinary flexibility allows JCMT staff who best understand the data to handle all data reduction and CADC staff who best understand the archive to maintain those services.  
+}
 \section{A Continuous Release Model}
 
 Using CADC's data processing infrastructure and the capabilities of
@@ -392,7 +454,7 @@ and again immediately released.
 Proprietary data goes into CAOM and becomes available via VO
 interfaces almost immediately. Proprietary metadata and data
 restrictions are enforced on all TAP \citep{tap} queries and authentication will
-permit authorised users to discover and download such data. Either
+permit authorized users to discover and download such data. Either
 AdvancedSearch or direct TAP queries can be used by PIs and JCMT
 legacy survey teams to find and download new data using this
 authenticated access. For example, the Cosmology Legacy Survey team
