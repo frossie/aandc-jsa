@@ -412,16 +412,44 @@ can be downloaded for each selection, giving the product type (reduced data file
 this example) and basic wavelength information (filter for continuum observations,
 rest frequency and spectrometer configuration for heterodyne observations).
 
-{\color{red}
 \section{VO Standards Used in the JSA}
-Do we use the IVOA Credential Delegation mechanism?  Are there other protocols that should be listed?
+{\color{red}
 \begin{description}
-\item[CAOM]: Common Object Observation Model -- Conceptually a superset of ObsCore, CAOM is a cross-archive data model implemented at the CADC to provide search and retrieval \item[DALI]: Data Access Layer Interface -- Implemented by the ``Data Web Service'' to provide access to the ``Archive Directory'' file storage resource. \url{???} 
-\item[ObsCore]: Observation Data Model Core Components -- IVOA standard observation data model. \url{http://www.ivoa.net/documents/ObsCore/}
-capabilities for all CADC archives.  The SIA and TAP services provide VO access to CAOM databases \url{http://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/caom2/}
-\item[SIA]: Simple Image Access Protocol -- The SIA server at the CADC can be used to discover, access, and retrieve multi-dimensional image datasets. \url{http://www.ivoa.net/documents/SIA/}
-\item[TAP]: Table Access Protocol -- Used to query CAOM databases, translating obscure entities into CAOM entities transparently. \url{http://www.ivoa.net/documents/TAP/} 
-\item[VOTable]: Virtual Observatory Table Format -- An XML standard for the interchange of data represented as a set of tables, TAP and AdvancedSearch can return query results to the user in VOTable format \url{http://www.ivoa.net/documents/VOTable/}
+\item[CAOM] : Common Archive Observation Model - This is the data model
+used in all archives at the CADC. It was designed to be a superset 
+of VO data models so that VO data models and services could be easily
+implemented on top of CAOM. While CAOM is not a VO data model per se, 
+it was designed and is used as the metadata interface between archives 
+and standard VO data models. \citep{2007ASPC..376..347D}
+\item[ObsCore] : Observation Data Model Core Components - This VO data model
+is designed to support data discovery specifcally by supporting the
+exact same queries to TAP services run by all data centres. In the JSA,
+this is simply a view of CAOM as it contains a subset of CAOM metadata. \citep{obscore}
+\item[SIA] : Simple Image Access - Version 1.0 is an early VO service 
+interface that supports positional searching and retrieval of 2D images.
+Version 2.0 is a new VO service interface that supports data discovery 
+of multi-dimensional datasets (images and data cubes) using the ObsCore 
+data model. Both of these are implemented using CAOM and TAP (below). \citep{tap}
+\item[TAP] : Table Access Protocol - This VO service interface supports ad-hoc 
+querying of the CAOM metadata and standard views like ObsCore. All JSA 
+science data is discoverable through this interface. \citep{tap}
+\item[DataLink] : DataLink Service - This VO service interface allows users 
+and client software to drill-down from discovered datasets to the list
+of files to download and to services that can operate on the data. The 
+SIA-2.0 and TAP services use this interface to provide access to JSA
+data files and services. \citep{datalink}
+\item[AccessData] : Access Data Prototype - This prototype VO service interface
+allows users to perform cutouts on data files in a standard set of 
+world coordinates. 
+\item[CDP] : Credential Delegation Protocol - This VO service interface enables 
+CADC services to call other services on behalf of the user so that the
+correct identity and access rights are enforced. In the JSA, this allows
+the user interface (AdvancedSearch) to pass the authenticated user 
+identity to the TAP service so that query results will include metadata 
+and access information for proprietary observations the user can access. \citep{cdp}
+\item[VOTable] : Virtual Observatory Table Format - This is a common tabular
+format used to exchange metadata between clients and services. It is 
+the standard output format in SIA, TAP, and DataLink. \citep{votable}
 \end{description}
 }
 
