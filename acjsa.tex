@@ -422,7 +422,7 @@ implemented on top of CAOM. While CAOM is not a VO data model per se,
 it was designed and is used as the metadata interface between archives 
 and standard VO data models. \citep{2007ASPC..376..347D}
 \item[ObsCore] : Observation Data Model Core Components - This VO data model
-is designed to support data discovery specifcally by supporting the
+is designed to support data discovery specifically by supporting the
 exact same queries to TAP services run by all data centres. In the JSA,
 this is simply a view of CAOM as it contains a subset of CAOM metadata. \citep{obscore}
 \item[SIA] : Simple Image Access - Version 1.0 is an early VO service 
@@ -433,6 +433,9 @@ data model. Both of these are implemented using CAOM and TAP (below). \citep{tap
 \item[TAP] : Table Access Protocol - This VO service interface supports ad-hoc 
 querying of the CAOM metadata and standard views like ObsCore. All JSA 
 science data is discoverable through this interface. \citep{tap}
+\item[ADQL] : Astronomical Data Query Language - Queries to the TAP service
+are formatted in ADQL, which is designed to closely resemble the popular SQL
+syntax used by many relational database systems. \citep{adql}
 \item[DataLink] : DataLink Service - This VO service interface allows users 
 and client software to drill-down from discovered datasets to the list
 of files to download and to services that can operate on the data. The 
