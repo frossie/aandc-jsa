@@ -206,7 +206,7 @@ ISM: individual objects (G34.3)
 The James Clerk Maxwell Telescope (JCMT) has collaborated with the Canadian Astronomy Data Centre (CADC) to
 create the JCMT Science Archive (JSA) which provides raw and reduced JCMT data to the astronomical community
 \citep{2008SPIE.7016E..16G,2008ASPC..394..450E,2008ASPC..394..135G,2011ASPC..442..203E}.
-As a new generation of instruments were being developed for the JCMT in
+As a new generation of instruments was being developed for the JCMT in
 the early 2000s \citep[HARP/ACSIS \& SCUBA-2;][]{2000ASPC..217...33D,2003SPIE.4855....1H},
 it became clear that
 the data rates from these instruments, of order 10\,MB/s, were going to be significantly
@@ -378,7 +378,7 @@ by any single subsystem.
 \end{itemize}
 
 The JCMT therefore
-provided an excellent stretch to the model; if JCMT data could be
+provided an excellent stretch to the model, and continues to do so; if JCMT data could be
 described in CAOM, CADC would be in the unprecedented position of
 being able to accept almost any data set from future observatories
 with minimal changes to their system.
@@ -422,7 +422,7 @@ used in all archives at the CADC. It was designed to be a superset
 of VO data models so that VO data models and services could be easily
 implemented on top of CAOM. While CAOM is not a VO data model per se,
 it was designed and is used as the metadata interface between archives
-and standard VO data models. \citep{2007ASPC..376..347D}
+and standard VO data models. \citep{2007ASPC..376..347D,2013ASPC..475..159R}
 \item[ObsCore] : Observation Data Model Core Components - This VO data model
 is designed to support data discovery specifically by supporting the
 exact same queries to TAP services run by all data centres. In the JSA,
@@ -463,13 +463,13 @@ the standard output format in SIA, TAP, and DataLink. \citep{votable}
 \begin{center}
 \includegraphics[width=0.75\textwidth]{jsa_dataflow_2015}
 \end{center}
-\caption{Data flow through the JSA as it is intended to be in early 2015.  The JCMT and CADC processes are arranged in four columns, with the JCMT-specific processes on the left, "portable processes" (data processing, file transfer and metadata ingestion) in the dotted box in the centre-left, CADC processes in the centre-right, and client processes running on archive users machines on the right.  The ``vertical drums'' in the figure represent relational databases.  The ``horizontal drums'' represent file storage, but do not specify the technology used to implement the storage (disk drives at the JCMT, databases at the CADC and for the CANFAR VOspace).  Where the software is developed, maintained and run by the JCMT/JAC or CADC, this is indicated by dashed container boxes.     Manual operations by JAC and CADC staff have been elided; user interactions are shown as arrows on the right side of the figure.}
+\caption{Data flow through the JSA as it is intended to be in early 2015.  The JCMT and CADC processes are arranged in four columns, with the JCMT-specific processes on the left, "portable processes" (data processing, file transfer and metadata ingestion) in the dotted box in the centre-left, CADC processes in the centre-right, and client processes running on archive users machines on the right.  The ``vertical drums'' in the figure represent relational databases.  The ``horizontal drums'' represent file storage, but do not specify the technology used to implement the storage (disk drives at the JCMT, databases at the CADC and for the CANFAR VOSpace).  Where the software is developed, maintained and run by the JCMT/JAC or CADC, this is indicated by dashed container boxes.     Manual operations by JAC and CADC staff have been elided; user interactions are shown as arrows on the right side of the figure.}
 \label{fig:jsadataflow}
 \end{figure*}
 
 The system that moves data from the JCMT to the CADC and on to our users has been under continuous development since the start of the collaboration.  Figure~\ref{fig:jsadataflow} shows the current development goal, which should have been attained by the time this paper is published.  Data files sent to be stored in the ``Archive Directory'' (AD) system at the CADC enter through the "Data Web Service" interface.  File metadata in the databases comprising the ``JSA CAOM Metadata'' system are managed using the ``CAOM Repository'' interface and can be read through the ``TAP'' service.  Similarly, users access data and metadata through the ``Data Web Service'' and TAP interfaces.  The use of a small number of well tested interfaces improves the reliability of the service and makes it easier to maintain on a limited budget.   Using the same interfaces that our users rely on ensures that problems are discovered and addressed quickly.
 
-The system was initially quite different.  Before the advent of CAOM, every archive maintained a custom database.  Each file was stored in AD and ingested into the database as it arrived through e-transfer.  The JCMT supplied by replication a set of observatory databases that contained file metadata for raw data, and published an ICD describing the file headers in reduced data products. The JCMT committed itself to follow strict FITS standards for file headers and WCS, and for raw data reproduced a set of columns in the ``File Metadata'' database that was nearly identical  to the set of headers in the reduced data for single observations.   The CADC archive scientist was responsible for the design of software that read the metadata from the replicated database or from the reduced data headers.  Writing and maintaining the software to ingest the metadata into the ``JSA CAOM Metadata'' database required a team of software developers at the CADC.  The successful operation of this system required close collaboration of the JCMT with the JSA team at the CADC, with weekly progress videocons and regular (often annual) face-to-face meetings to discuss larger issues.  Although the system worked, it was cumbersome and expensive.  A leaner and more versatile system was clearly desirable.
+The system was initially quite different.  Before the advent of CAOM, every archive maintained a custom database.  Each file was stored in AD and ingested into the database as it arrived through e-transfer\footnote{For an introduction to the e-transfer system see \citet{2005ASPC..347..647M}}.  The JCMT supplied by replication a set of observatory databases that contained file metadata for raw data, and published an interface control document (ICD) describing the file headers in reduced data products. The JCMT committed itself to follow strict FITS standards for file headers and WCS, and for raw data reproduced a set of columns in the ``File Metadata'' database that was nearly identical  to the set of headers in the reduced data for single observations.   The CADC archive scientist was responsible for the design of software that read the metadata from the replicated database or from the reduced data headers.  Writing and maintaining the software to ingest the metadata into the ``JSA CAOM Metadata'' database required a team of software developers at the CADC.  The successful operation of this system required close collaboration of the JCMT with the JSA team at the CADC, with weekly progress videocons and regular (often annual) face-to-face meetings to discuss larger issues.  Although the system worked, it was cumbersome and expensive.  A leaner and more versatile system was clearly desirable.
 
 The container labelled ``Portable Processes'' in Figure~\ref{fig:jsadataflow} illustrates how the leaner system was implemented.  The custom software for each archive was refactored into a set of simpler processes.  Data processing ran at the CADC for easy access to the stored data, but was developed and maintained by the JAC.  This encouraged a clean separation between the ``Data Processing Queue'' and  ``Data Processing'' itself.    The JSA was an early adopter of CAOM, which allowed raw and processed data ingestion to be factored out as separate processes.  Since raw data ingestion applies to whole observations, the ``Raw Data Discovery Agent'' verifies that all of the raw data for an observation is stored in AD before starting the ``Raw Data Ingestion'' process.  Originally, ``Processed Data Ingestion'' had its own discovery agent, but it is now controlled by the ``Data Processing Queue''.
 
@@ -542,7 +542,9 @@ community and this discussion dominated early protocol development.
 Data cubes were seen as a task for the future as it was
 felt that they were products that were not yet in the mainstream and
 optical/IR IFU instruments \citep[such as
-UIST;][]{2004SPIE.5492.1160R} were seen as something interesting for
+UIST;][]{2004SPIE.5492.1160R} or imaging Fabry-Perot spectrometers
+\citep[e.g., TAURUS;][]{1982MNRAS.201..661A}
+were seen as something interesting to be tackled in
 the future. This was frustrating given that JCMT heterodyne
 observations regularly generated cubes and with the arrival of ACSIS
 in 2006, gigabyte data cubes were commonplace. There was no standard
@@ -557,7 +559,7 @@ over the last decade.
 
 In Table~\ref{tab:cadcvo}, the line labeled ``TAP querying for Spectra''
 indicates the number of spectra in the JCMT collection.  These can
-easily be found using the CAD AdvancedSearch interface, or directly using
+easily be found using the CADC AdvancedSearch interface, or directly using
 a TAP query.  The full positional and photon energy WCS are provided
 for these spectra, even when the positional axes are degenerate.   SIA-2.0
 should be able to find all of these data, once it has been implemented.
@@ -569,7 +571,7 @@ standard source extraction algorithms such as SExtractor
 \citep[][\ascl{1010.064}]{1996A&AS..117..393B}. Instead, algorithms
 such as FellWalker \citep[][\ascl{1311.007}]{2015FW,2007ASPC..376..425B} and
 Clumpfind \citep[][\ascl{1107.014}]{1994ApJ...428..693W}, which detect
-source emission in irregularly-shaped clumps, were used when
+source emission in irregularly shaped clumps, were used when
 doing source finding. VO ConeSearch was not
 set up for this eventuality and the best we could hope for was to
 provide a catalogue that indicated the peak of the emission. To work
