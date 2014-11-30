@@ -96,6 +96,7 @@
 % Aim to be consistent, and correct, about how we refer to sections
 \newcommand*\secref[1]{Sect.~\ref{#1}}
 \newcommand*\appref[1]{\ref{#1}}
+\newcommand*\figref[1]{Fig.~\ref{#1}}
 
 \begin{document}
 
@@ -232,9 +233,9 @@ products \citep{2006JCMTN24R}.
 
 Submillimeter data has traditionally been rather esoteric, closer to
 radio than the optical/infrared regime familiar to most
-astronomers. Raw data is typically in time series format (Fig.~\ref{fig:g34ts}), and requires
+astronomers. Raw data is typically in time series format (\figref{fig:g34ts}), and requires
 in-house algorithms for transformation to science-ready formats such
-as spectra or images (see e.g.\ Fig.~\ref{fig:g34}). Calibration is
+as spectra or images. Calibration is
 difficult due to the dominant and highly variable effect of the water
 vapour in Earth's atmosphere
 \citep[e.g.,][]{2002MNRAS.336....1A,2013MNRAS.430.2534D}.
@@ -243,7 +244,7 @@ vapour in Earth's atmosphere
 \includegraphics[angle=-90,width=\columnwidth]{g34ts}
 \caption{Single bolometer time-series from a subset of a SCUBA-2
   observation of G34.3 from 2012 June 11th. The final image is shown in
-  Fig.~\ref{fig:g34}. The negative spikes are the detections of the
+  \figref{fig:g34}. The negative spikes are the detections of the
   bright central source.}
 \label{fig:g34ts}
 \end{figure}
@@ -258,7 +259,7 @@ than what an inexperienced astronomer could be expected to achieve on
 their own. Moreover with the advent of large bolometer arrays such as
 SCUBA-2 \citep{2013MNRAS.430.2513H}, this data could be processed in
 maps that resulted in image data that could be readily understood by
-non-submm specialists, an example of which can be seen in Fig.~\ref{fig:g34}.
+non-submm specialists, an example of which can be seen in \figref{fig:g34}.
 
 \begin{figure}[t]
 \includegraphics[width=\columnwidth]{g34}
@@ -410,7 +411,7 @@ metadata and quick response in the rare case of problems made this an
 attractive test data set.
 
 The success of
-this approach can be seen from the screen shot in Fig.~\ref{fig:asresults},
+this approach can be seen from the screen shot in \figref{fig:asresults},
 which shows the reduced (Calibration Level 2) data from May 2014, sorted by
 observation date, filtered to remove reduced-450\,$\upmu$m data (since the atmosphere
 at 450\,$\upmu$m is often very opaque) and to include observations with RA $>$ 125.0 deg.
@@ -473,11 +474,11 @@ the standard output format in SIA, TAP, and DataLink. \citep{votable}
 \label{fig:jsadataflow}
 \end{figure*}
 
-The system that moves data from the JCMT to the CADC and on to our users has been under continuous development since the start of the collaboration.  Figure~\ref{fig:jsadataflow} shows the current development goal, which should have been attained by the time this paper is published.  Data files sent to be stored in the ``Archive Directory'' (AD) system at the CADC enter through the "Data Web Service" interface.  File metadata in the databases comprising the ``JSA CAOM Metadata'' system are managed using the ``CAOM Repository'' interface and can be read through the ``TAP'' service.  Similarly, users access data and metadata through the ``Data Web Service'' and TAP interfaces.  The use of a small number of well tested interfaces improves the reliability of the service and makes it easier to maintain on a limited budget.   Using the same interfaces that our users rely on ensures that problems are discovered and addressed quickly.
+The system that moves data from the JCMT to the CADC and on to our users has been under continuous development since the start of the collaboration.  \figref{fig:jsadataflow} shows the current development goal, which should have been attained by the time this paper is published.  Data files sent to be stored in the ``Archive Directory'' (AD) system at the CADC enter through the "Data Web Service" interface.  File metadata in the databases comprising the ``JSA CAOM Metadata'' system are managed using the ``CAOM Repository'' interface and can be read through the ``TAP'' service.  Similarly, users access data and metadata through the ``Data Web Service'' and TAP interfaces.  The use of a small number of well tested interfaces improves the reliability of the service and makes it easier to maintain on a limited budget.   Using the same interfaces that our users rely on ensures that problems are discovered and addressed quickly.
 
 The system was initially quite different.  Before the advent of CAOM, every archive maintained a custom database.  Each file was stored in AD and ingested into the database as it arrived through e-transfer\footnote{For an introduction to the e-transfer system see \citet{2005ASPC..347..647M}}.  The JCMT supplied by replication a set of observatory databases that contained file metadata for raw data, and published an interface control document (ICD) describing the file headers in reduced data products. The JCMT committed itself to follow strict FITS standards for file headers and WCS, and for raw data reproduced a set of columns in the ``File Metadata'' database that was nearly identical  to the set of headers in the reduced data for single observations.   The CADC archive scientist was responsible for the design of software that read the metadata from the replicated database or from the reduced data headers.  Writing and maintaining the software to ingest the metadata into the ``JSA CAOM Metadata'' database required a team of software developers at the CADC.  The successful operation of this system required close collaboration of the JCMT with the JSA team at the CADC, with weekly progress videocons and regular (often annual) face-to-face meetings to discuss larger issues.  Although the system worked, it was cumbersome and expensive.  A leaner and more versatile system was clearly desirable.
 
-The container labelled ``Portable Processes'' in Figure~\ref{fig:jsadataflow} illustrates how the leaner system was implemented.  The custom software for each archive was refactored into a set of simpler processes.  Data processing ran at the CADC for easy access to the stored data, but was developed and maintained by the JAC.  This encouraged a clean separation between the ``Data Processing Queue'' and  ``Data Processing'' itself.    The JSA was an early adopter of CAOM, which allowed raw and processed data ingestion to be factored out as separate processes.  Since raw data ingestion applies to whole observations, the ``Raw Data Discovery Agent'' verifies that all of the raw data for an observation is stored in AD before starting the ``Raw Data Ingestion'' process.  Originally, ``Processed Data Ingestion'' had its own discovery agent, but it is now controlled by the ``Data Processing Queue''.
+The container labelled ``Portable Processes'' in \figref{fig:jsadataflow} illustrates how the leaner system was implemented.  The custom software for each archive was refactored into a set of simpler processes.  Data processing ran at the CADC for easy access to the stored data, but was developed and maintained by the JAC.  This encouraged a clean separation between the ``Data Processing Queue'' and  ``Data Processing'' itself.    The JSA was an early adopter of CAOM, which allowed raw and processed data ingestion to be factored out as separate processes.  Since raw data ingestion applies to whole observations, the ``Raw Data Discovery Agent'' verifies that all of the raw data for an observation is stored in AD before starting the ``Raw Data Ingestion'' process.  Originally, ``Processed Data Ingestion'' had its own discovery agent, but it is now controlled by the ``Data Processing Queue''.
 
 The refactored system is quite modular and deployment is extremely flexible. These processes were deployed at the CADC for most of the last decade, but over the last year have migrated to the JAC.  It is anticipated that data processing might move onto a CANFAR Virtual Machine in the near future.  Ingestion can now run on any node that can access the ``CAOM Repository'', read existing metadata through the TAP service and optionally access the ``File Metadata'' service at the JCMT.   This extraordinary flexibility allows JCMT staff who best understand the data to handle all data reduction and CADC staff who best understand the archive to maintain those services.
 
@@ -625,7 +626,7 @@ SIA  & 335\,185\\ \hline
 \end{center}
 \end{table}
 
-Fig.~\ref{fig:jsapubs} demonstrates that between 2010 and 2013 more
+\figref{fig:jsapubs} demonstrates that between 2010 and 2013 more
 than half of the refereed papers published containing JCMT data,
 obtained their data from the JSA. Table \ref{tab:cadcvo} provides the
 current size of the data holdings accessible via a variety of VO protocols.
@@ -748,7 +749,7 @@ The Canadian Astronomy Data Centre is operated by the
 National Research Council of Canada with the support of the Canadian
 Space Agency. This research has made use of NASA's Astrophysics
 Data System. We thank Graham Bell for allowing us to derive our
-Figure~\ref{fig:jsapubs} from \citet{2014SPIE9152-93}.
+\figref{fig:jsapubs} from \citet{2014SPIE9152-93}.
 
 %% References
 %%
