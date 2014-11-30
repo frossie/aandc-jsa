@@ -424,42 +424,42 @@ rest frequency and spectrometer configuration for heterodyne observations).
 \section{VO Standards Used in the JSA}
 
 \begin{description}
-\item[CAOM] : Common Archive Observation Model - This is the data model
+\item[CAOM] : Common Archive Observation Model -- This is the data model
 used in all archives at the CADC. It was designed to be a superset
 of VO data models so that VO data models and services could be easily
 implemented on top of CAOM. While CAOM is not a VO data model per se,
 it was designed and is used as the metadata interface between archives
 and standard VO data models. \citep{2007ASPC..376..347D,2013ASPC..475..159R}
-\item[ObsCore] : Observation Data Model Core Components - This VO data model
+\item[ObsCore] : Observation Data Model Core Components -- This VO data model
 is designed to support data discovery specifically by supporting the
 exact same queries to TAP services run by all data centres. In the JSA,
 this is simply a view of CAOM as it contains a subset of CAOM metadata. \citep{obscore}
-\item[SIA] : Simple Image Access - Version 1.0 is an early VO service
+\item[SIA] : Simple Image Access -- Version 1.0 is an early VO service
 interface that supports positional searching and retrieval of 2D images.
 Version 2.0 is a new VO service interface that supports data discovery
 of multi-dimensional datasets (images and data cubes) using the ObsCore
 data model. Both of these are implemented using CAOM and TAP (below). \citep{tap}
-\item[TAP] : Table Access Protocol - This VO service interface supports ad-hoc
+\item[TAP] : Table Access Protocol -- This VO service interface supports ad-hoc
 querying of the CAOM metadata and standard views like ObsCore. All JSA
 science data is discoverable through this interface. \citep{tap}
-\item[ADQL] : Astronomical Data Query Language - Queries to the TAP service
+\item[ADQL] : Astronomical Data Query Language -- Queries to the TAP service
 are formatted in ADQL, which is designed to closely resemble the popular SQL
 syntax used by many relational database systems. \citep{adql}
-\item[DataLink] : DataLink Service - This VO service interface allows users
+\item[DataLink] : DataLink Service -- This VO service interface allows users
 and client software to drill-down from discovered datasets to the list
 of files to download and to services that can operate on the data. The
 SIA-2.0 and TAP services use this interface to provide access to JSA
 data files and services. \citep{datalink}
-\item[AccessData] : Access Data Prototype - This prototype VO service interface
+\item[AccessData] : Access Data Prototype -- This prototype VO service interface
 allows users to perform cutouts on data files in a standard set of
 world coordinates.
-\item[CDP] : Credential Delegation Protocol - This VO service interface enables
+\item[CDP] : Credential Delegation Protocol -- This VO service interface enables
 CADC services to call other services on behalf of the user so that the
 correct identity and access rights are enforced. In the JSA, this allows
 the user interface (AdvancedSearch) to pass the authenticated user
 identity to the TAP service so that query results will include metadata
 and access information for proprietary observations the user can access. \citep{cdp}
-\item[VOTable] : Virtual Observatory Table Format - This is a common tabular
+\item[VOTable] : Virtual Observatory Table Format -- This is a common tabular
 format used to exchange metadata between clients and services. It is
 the standard output format in SIA, TAP, and DataLink. \citep{votable}
 \end{description}
