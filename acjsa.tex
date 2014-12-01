@@ -375,7 +375,7 @@ data consisted of two dimensional RA/Dec images and sets of spectra.  Even at th
 came in RA/Dec, Galactic and offset co-ordinates, with up to 4 dimensions (2
 spatial, wavelength and polarization).  The JCMT standard pipeline generates a
 diverse set of products, including spectra, data cubes, maps, previews showing both spectral
-and spatial images,  and catalogs for point sources, emission peaks and
+and spatial images,  and catalogues for point sources, emission peaks and
 clumps (extended regions of non-uniform emission).
 
 \item Since most detector technologies only allow a photon to be
@@ -480,7 +480,7 @@ the standard output format in SIA, TAP, and DataLink \citep{votable}.
 \label{fig:jsadataflow}
 \end{figure*}
 
-The system that moves data from the JCMT to the CADC and on to our users has been under continuous development since the start of the collaboration.  \figref{fig:jsadataflow} shows the current development goal, which should have been attained by the time this paper is published.  Data files sent to be stored in the ``Archive Directory'' (AD) system at the CADC enter through the "Data Web Service" interface.  File metadata in the databases comprising the ``JSA CAOM Metadata'' system are managed using the ``CAOM Repository'' interface and can be read through the ``TAP'' service.  Similarly, users access data and metadata through the ``Data Web Service'' and TAP interfaces.  The use of a small number of well tested interfaces improves the reliability of the service and makes it easier to maintain on a limited budget.   Using the same interfaces that our users rely on ensures that problems are discovered and addressed quickly.
+The system that moves data from the JCMT to the CADC and on to our users has been under continuous development since the start of the collaboration.  \figref{fig:jsadataflow} shows the current development goal, which should have been attained by the time this paper is published.  Data files sent to be stored in the ``Archive Directory'' (AD) system at the CADC enter through the ``Data Web Service'' interface.  File metadata in the databases comprising the ``JSA CAOM Metadata'' system are managed using the ``CAOM Repository'' interface and can be read through the ``TAP'' service.  Similarly, users access data and metadata through the ``Data Web Service'' and TAP interfaces.  The use of a small number of well tested interfaces improves the reliability of the service and makes it easier to maintain on a limited budget.   Using the same interfaces that our users rely on ensures that problems are discovered and addressed quickly.
 
 The system was initially quite different.  Before the advent of CAOM, every archive maintained a custom database.  Each file was stored in AD and ingested into the database as it arrived through e-transfer\footnote{For an introduction to the e-transfer system see \citet{2005ASPC..347..647M}}.  The JCMT supplied by replication a set of observatory databases that contained file metadata for raw data, and published an interface control document (ICD) describing the file headers in reduced data products. The JCMT committed itself to follow strict FITS standards for file headers and WCS, and for raw data reproduced a set of columns in the ``File Metadata'' database that was nearly identical  to the set of headers in the reduced data for single observations.   The CADC archive scientist was responsible for the design of software that read the metadata from the replicated database or from the reduced data headers.  Writing and maintaining the software to ingest the metadata into the ``JSA CAOM Metadata'' database required a team of software developers at the CADC.  The successful operation of this system required close collaboration of the JCMT with the JSA team at the CADC, with weekly progress videocons and regular (often annual) face-to-face meetings to discuss larger issues.  Although the system worked, it was cumbersome and expensive.  A leaner and more versatile system was clearly desirable.
 
@@ -597,8 +597,8 @@ extending the facilities in GAIA
 \citep[][\ascl{1403.024}]{2009ASPC..411..575D} to hide the TAP
 interface. We hope a variant of ConeSearch will be developed that
 works for extended irregular sources.
-It should be sufficient for a an enhanced ConeSearch query to return
-the results as catalogs with STC-S columns representing the shape of
+It should be sufficient for an enhanced ConeSearch query to return
+the results as catalogues with STC-S columns representing the shape of
 the object that matches, and for a match to be defined as an overlap
 between the region specified by the caller and the region defining the
 object. In this manner all existing ConeSearch services could simply
@@ -611,7 +611,7 @@ point spread function.
 \includegraphics[width=\columnwidth]{jcmt-pubs-crop}
 \caption{Breakdown of the 405 JCMT refereed publications between 2010 and
     2013 indicating the fraction using data from the JCMT Science
-    Archive. The remaining segments are from papers using instrument
+    Archive. The remaining segments are from papers only using instrument
     data directly. Figure derived from \citet{2014SPIE9152-93}.}
 \label{fig:jsapubs}
 \end{figure}
@@ -634,7 +634,7 @@ SIA  & 335\,185\\ \hline
 
 \figref{fig:jsapubs} demonstrates that between 2010 and 2013 more
 than half of the refereed papers published containing JCMT data,
-obtained their data from the JSA. Table \ref{tab:cadcvo} provides the
+obtained data from the JSA. Table \ref{tab:cadcvo} provides the
 current size of the data holdings accessible via a variety of VO protocols.
 
 The collaboration has proven so successful that the opportunity was
@@ -656,8 +656,8 @@ will also result in catalogue products that are specifically designed
 to answer the question of whether the JCMT saw any emission in a
 particular part of the sky. This is achieved by doing a two-pass
 approach to clump
-finding where first the emission outline is determined, and represented
-by an STC-S polygon, and then the individual peaks are located
+finding where first the emission outline is determined, and ultimately
+represented by an STC-S polygon, and then the individual peaks are located
 \citep{2014JCMTN35..21G}.
 
 There is also an intent to expand the holdings of the JSA to include
