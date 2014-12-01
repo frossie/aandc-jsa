@@ -486,7 +486,22 @@ The system was initially quite different.  Before the advent of CAOM, every arch
 
 The container labelled ``Portable Processes'' in \figref{fig:jsadataflow} illustrates how the leaner system was implemented.  The custom software for each archive was refactored into a set of simpler processes.  Data processing ran at the CADC for easy access to the stored data, but was developed and maintained by the JAC.  This encouraged a clean separation between the ``Data Processing Queue'' and  ``Data Processing'' itself.    The JSA was an early adopter of CAOM, which allowed raw and processed data ingestion to be factored out as separate processes.  Since raw data ingestion applies to whole observations, the ``Raw Data Discovery Agent'' verifies that all of the raw data for an observation is stored in AD before starting the ``Raw Data Ingestion'' process.  Originally, ``Processed Data Ingestion'' had its own discovery agent, but it is now controlled by the ``Data Processing Queue''.
 
-The refactored system is quite modular and deployment is extremely flexible. These processes were deployed at the CADC for most of the last decade, but over the last year have migrated to the JAC.  It is anticipated that data processing might move onto a CANFAR Virtual Machine in the near future.  Ingestion can now run on any node that can access the ``CAOM Repository'', read existing metadata through the TAP service and optionally access the ``File Metadata'' service at the JCMT.   This extraordinary flexibility allows JCMT staff who best understand the data to handle all data reduction and CADC staff who best understand the archive to maintain those services.
+The refactored system is quite modular and deployment is extremely
+flexible. These processes were deployed at the CADC for most of the
+last decade, but over the last year have migrated to the JAC.  Data
+processing is currently run at the JAC using a queue system with
+database tables similar to those used by CADC's original interface to
+Sun Grid Engine. This has allowed the associated software to run with
+minimal changes. The new system has a web interface which is tailored
+to the JCMT, including a facility for in-house quality assurance. It
+is anticipated that data processing might move onto a CANFAR Virtual
+Machine in the near future and be orchestrated by the current queuing
+system. Ingestion can now run on any node that can access the ``CAOM
+Repository'', read existing metadata through the TAP service and
+optionally access the ``File Metadata'' service at the JCMT.  This
+extraordinary flexibility allows JCMT staff who best understand the
+data to handle all data reduction and CADC staff who best understand
+the archive to maintain those services.
 
 \section{A Continuous Data Release Model}
 
