@@ -523,7 +523,9 @@ AdvancedSearch or direct TAP queries can be used by PIs and JCMT
 legacy survey teams to find and download new data using this
 authenticated access. For example, the Cosmology Legacy Survey team
 \citep{2013MNRAS.432...53G} runs a script using the TAP interface to
-keep track of new observations as they arrive in the archive.
+keep track of new observations as they arrive in the archive. For year
+2014, approximately 40~percent of all queries to the JSA came through
+the TAP interface.
 
 Continuous release made the VO publication mechanisms even more useful
 than they are in the normal data discovery process, as product
@@ -542,14 +544,19 @@ user then defines a number of jobs that are serviced on a Condor
 compute platform composed of customized VM copies.
 
 This service has been of great utility to the Canadian astronomical
-community dealing with large data volumes, in this case the artifacts of
-the Gould Belt Legacy Survey \citep[GBS;][]{2007PASP..119..855W}.
-In its use of CANFAR, the GBS data
+community dealing with large data volumes, with downloads of raw data from
+the JSA to CANFAR processing nodes accounting for more than 40~percent of all
+JSA raw data downloads in 2014.
+The Gould Belt Legacy Survey \citep[GBS;][]{2007PASP..119..855W} make
+use of use of CANFAR, and the GBS data
 processing lifecycle is supported at every step by VO-compliant services.
 Raw data is retrieved from VO-compliant discovery and delivery services,
 that data is processed on the customized VMs provisioned on CANFAR, and
 the resulting products are shared among survey members in VO-compliant
-storage services using VOSpace \citep{vospace}.
+storage services using VOSpace \citep{vospace}. The total VOSpace
+usage by the survey teams is currently approaching 1\,TB and this has
+proven to be a critical part of the collaboration infrastructure when
+dealing with teams spread over Canada, Hawaii and Europe.
 
 The existence of the VOSpace system at CADC has also led to them
 taking on the role of data publisher for JCMT science papers.
@@ -649,10 +656,31 @@ SIA  & 335\,185\\ \hline
 \end{center}
 \end{table}
 
+\begin{table}
+\caption{Downloads of raw and reduced data from the JSA for the first
+  11 months of 2014. 40~percent of the raw downloads are to CANFAR
+  processing nodes. When interpreting the relative count of raw and
+  processed files, note that SCUBA-2 generates 480 discrete data files
+  every half hour, which may result in only two output maps (one for
+  each wavelength, depending on tiling scheme).}
+\label{tab:down}
+\begin{center}
+\begin{tabular}{|l|r|r|}
+\hline
+ & Number of files & Data volume / GB \\ \hline
+ Processed  &     72\,730   &    1\,764 \\
+ Raw           & 4\,427\,478    &  63\,611 \\  \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
 \figref{fig:jsapubs} demonstrates that between 2010 and 2013 more
 than half of the refereed papers published containing JCMT data,
 obtained data from the JSA. Table \ref{tab:cadcvo} provides the
-current size of the data holdings accessible via a variety of VO protocols.
+current size of the data holdings accessible via a variety of VO
+protocols, and table \ref{tab:down} provides details of how the
+downloads from the JSA are split between raw and reduced data.
 
 The collaboration has proven so successful that the opportunity was
 taken to transfer the UKIRT raw data from the Cassegrain instruments
